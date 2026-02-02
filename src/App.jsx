@@ -4,9 +4,9 @@ import { STRINGS } from "./i18n";
 
 const X_PROFILE_URL = "https://x.com/Patchbuu"; // Cambialo si tu handle cambia
 
-function Section({ id, title, subtitle, children }) {
+function Section({ id, title, subtitle, className = "", children }) {
   return (
-    <section id={id} className="section">
+    <section id={id} className={`section ${className}`.trim()}>
       <div className="sectionHead">
         <h2>{title}</h2>
         {subtitle && <p className="muted">{subtitle}</p>}
@@ -34,8 +34,47 @@ export default function App() {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  // ✅ Genera piezas SVG con variación (posición/tamaño/drift/rot/velocidad)
+  const pieces = useMemo(() => {
+    const count = 16; // subí/bajá densidad
+    const types = ["p1", "p2", "p3"];
+    const rand = (a, b) => a + Math.random() * (b - a);
+
+    return Array.from({ length: count }, (_, i) => {
+      const type = types[i % types.length];
+      const left = `${rand(2, 98).toFixed(2)}%`;
+      const size = `${rand(18, 34).toFixed(0)}px`; // tamaño
+      const drift = `${rand(-28, 28).toFixed(0)}px`; // deriva lateral
+      const rot = `${rand(0, 360).toFixed(0)}deg`; // rot inicial
+      const dur = `${rand(18, 32).toFixed(2)}s`; // duración caída
+      const delay = `-${rand(0, 28).toFixed(2)}s`; // delay negativo = ya vienen cayendo
+      const opacity = rand(0.12, 0.28).toFixed(2); // más pro, menos invasivo
+
+      return { key: i, type, left, size, drift, rot, dur, delay, opacity };
+    });
+  }, []);
+
   return (
     <div className="page">
+      {/* ✅ Fondo animado SVG/CSS */}
+      <div className="puzzleRain" aria-hidden="true">
+        {pieces.map((p) => (
+          <span
+            key={p.key}
+            className={`puzzlePieceSvg ${p.type}`}
+            style={{
+              left: p.left,
+              "--sz": p.size,
+              "--drift": p.drift,
+              "--rot": p.rot,
+              animationDuration: p.dur,
+              animationDelay: p.delay,
+              opacity: p.opacity,
+            }}
+          />
+        ))}
+      </div>
+
       <header className="nav">
         <div className="brand" onClick={() => scrollTo("top")} role="button" tabIndex={0}>
           <span className="dot" />
@@ -52,8 +91,7 @@ export default function App() {
         </nav>
 
         <div className="navActions">
-         <button className="pill neon" onClick={toggleLang} title="Toggle language">
-
+          <button className="pill neon" onClick={toggleLang} title="Toggle language">
             {t.toggle}
           </button>
           <a className="pill primary" href={X_PROFILE_URL} target="_blank" rel="noreferrer">
@@ -66,9 +104,11 @@ export default function App() {
         <section className="hero">
           <div className="heroInner">
             <div className="badge">{t.hero.badge}</div>
+
             <h1>
               {t.hero.title} <span className="accent">{t.hero.titleAccent}</span>
             </h1>
+
             <p className="lead">{t.hero.subtitle}</p>
 
             <div className="ctaRow">

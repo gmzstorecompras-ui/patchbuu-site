@@ -163,7 +163,7 @@
         "Sin fechas, sin promesas — solo direcciones posibles que la comunidad puede votar.",
       items: [
         "PatchCam / timelapses detrás de escena",
-        "Misiones de memes semanales (EN/ES)",
+        "Misiones de memes semanales",
         "Lore drops por colores/parches",
         "Colabs y raids de comunidad",
       ],
