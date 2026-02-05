@@ -1,76 +1,29 @@
-﻿:root{
-  --bg: #0b0b0f;
-  --panel: rgba(255, 255, 255, 0.06);
-  --panel2: rgba(255, 255, 255, 0.09);
-  --text: rgba(255, 255, 255, 0.92);
-  --muted: rgba(255, 255, 255, 0.72);
-  --border: rgba(255, 255, 255, 0.14);
-  --accent: #ff3dbf;
-  --accent2: #56d6ff;
-  --shadow: 0 12px 40px rgba(0,0,0,0.35);
-}
+﻿/* =========================
+   PatchBuu — UI (Pro)
+   ========================= */
 
-*{ box-sizing: border-box; }
-html, body{ margin:0; padding:0; background: var(--bg); color: var(--text); }
-a{ color: inherit; text-decoration: none; }
-button{ font: inherit; }
+:root{
+  --border: rgba(255,255,255,.12);
+  --shadow: 0 12px 30px rgba(0,0,0,.25);
+  --glass: rgba(14, 16, 22, .65);
+  --glass2: rgba(255,255,255,.06);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.72);
+  --muted2: rgba(255,255,255,.62);
+  --accent: #ff4fd8;
+  --accent2: #6df6ff;
+  --radius: 18px;
+}
 
 .page{
   min-height: 100vh;
+  color: var(--text);
   position: relative;
-  overflow-x: hidden;
-}
-
-/* =========================
-   PUZZLE RAIN (SVG/CSS) ✅
-   ========================= */
-.puzzleRain{
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
   overflow: hidden;
 }
 
-/* El contenido siempre arriba */
-.nav, main{ position: relative; z-index: 2; }
-
-/* Base de cada pieza */
-.puzzlePieceSvg{
-  position: absolute;
-  top: -14vh;
-  width: var(--sz, 26px);
-  height: var(--sz, 26px);
-  transform: rotate(var(--rot, 0deg));
-  filter:
-    drop-shadow(0 0 10px rgba(255,61,191,0.12))
-    drop-shadow(0 0 10px rgba(86,214,255,0.10));
-  animation: pieceFall linear infinite;
-  will-change: transform;
-}
-
-/* 3 formas SVG (data-uri). Si querés, hacemos un set más “real” después. */
-.puzzlePieceSvg.p1{
-  background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='rgba(255,61,191,0.9)' d='M22 8h8c0 6 10 6 10 0h8a6 6 0 0 1 6 6v10c-6 0-6 10 0 10v10a6 6 0 0 1-6 6H40c0-6-10-6-10 0h-8a6 6 0 0 1-6-6V34c6 0 6-10 0-10V14a6 6 0 0 1 6-6Z'/%3E%3C/svg%3E");
-}
-.puzzlePieceSvg.p2{
-  background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='rgba(86,214,255,0.9)' d='M14 14h10c0 6 10 6 10 0h16a6 6 0 0 1 6 6v8c-6 0-6 10 0 10v8a6 6 0 0 1-6 6H34c0-6-10-6-10 0H14a6 6 0 0 1-6-6V38c6 0 6-10 0-10v-8a6 6 0 0 1 6-6Z'/%3E%3C/svg%3E");
-}
-.puzzlePieceSvg.p3{
-  background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='rgba(255,255,255,0.55)' d='M18 10h10c0 6 10 6 10 0h10a6 6 0 0 1 6 6v10c-6 0-6 10 0 10v12a6 6 0 0 1-6 6H38c0-6-10-6-10 0H18a6 6 0 0 1-6-6V36c6 0 6-10 0-10V16a6 6 0 0 1 6-6Z'/%3E%3C/svg%3E");
-}
-
-@keyframes pieceFall{
-  from{
-    transform: translateY(-15vh) translateX(0) rotate(var(--rot, 0deg));
-  }
-  to{
-    transform: translateY(115vh) translateX(var(--drift, 0px)) rotate(calc(var(--rot, 0deg) + 120deg));
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  .puzzlePieceSvg{ animation: none; }
+.main{
+  padding-top: 86px;
 }
 
 /* =========================
@@ -79,255 +32,789 @@ button{ font: inherit; }
 .nav{
   position: sticky;
   top: 0;
-  z-index: 20; /* por encima del main */
+  z-index: 10;
   display: flex;
+  gap: 16px;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  padding: 14px 20px;
-  backdrop-filter: blur(14px);
-  background: rgba(11, 11, 15, 0.7);
+  padding: 14px 18px;
   border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(10,12,16,.85), rgba(10,12,16,.55));
+  backdrop-filter: blur(10px);
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  cursor:pointer;
-  user-select:none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  cursor: pointer;
 }
 
 .dot{
-  width:10px;
-  height:10px;
-  border-radius:999px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  box-shadow: 0 0 0 6px rgba(255,61,191,0.12);
+  width: 12px;
+  height: 12px;
+  border-radius: 99px;
+  background: radial-gradient(circle at 35% 35%, var(--accent2), var(--accent));
+  box-shadow: 0 0 0 4px rgba(255,255,255,.06), 0 0 22px rgba(255,79,216,.25);
 }
 
-.brandName{ font-weight: 800; letter-spacing: .3px; }
-.brandTag{ opacity: .9; }
+.brandName{
+  font-weight: 900;
+  letter-spacing: .4px;
+}
+
+.brandTag{
+  opacity: .9;
+}
 
 .navLinks{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
 .navLinks button{
   background: transparent;
   border: 1px solid transparent;
-  color: var(--muted);
+  color: rgba(255,255,255,.82);
   padding: 8px 10px;
   border-radius: 999px;
   cursor: pointer;
-}
-.navLinks button:hover{
-  border-color: var(--border);
-  color: var(--text);
+  transition: all .12s ease;
 }
 
-.navActions{ display:flex; gap:10px; }
+.navLinks button:hover{
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.04);
+}
+
+.navActions{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
 
 .pill{
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.05);
-  padding: 8px 12px;
   border-radius: 999px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.88);
   cursor: pointer;
-  color: rgba(255,255,255,0.92);
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease, background .12s ease;
+  transition: all .12s ease;
 }
+
 .pill:hover{
-  border-color: rgba(255,255,255,0.28);
-  background: rgba(255,255,255,0.08);
-  transform: translateY(-1px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.22);
 }
-.pill.neon{
-  border-color: rgba(255,61,191,0.35);
-  background: linear-gradient(90deg, rgba(255,61,191,0.22), rgba(86,214,255,0.16));
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.06) inset,
-    0 10px 26px rgba(0,0,0,0.35),
-    0 0 18px rgba(255,61,191,0.22),
-    0 0 18px rgba(86,214,255,0.18);
-}
-.pill.neon:hover{
-  border-color: rgba(86,214,255,0.50);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.07) inset,
-    0 12px 30px rgba(0,0,0,0.40),
-    0 0 24px rgba(255,61,191,0.28),
-    0 0 24px rgba(86,214,255,0.22);
-}
+
 .pill.primary{
-  background: linear-gradient(90deg, rgba(255,61,191,0.25), rgba(86,214,255,0.18));
+  border-color: rgba(255,79,216,.35);
+  background: rgba(255,79,216,.12);
+}
+
+.pill.neon{
+  border-color: rgba(109,246,255,.35);
+  background: rgba(109,246,255,.10);
 }
 
 /* =========================
-   HERO / SECTIONS
+   HERO
    ========================= */
 .hero{
-  padding: 64px 20px 30px;
-  border-bottom: 1px solid var(--border);
-  background:
-    radial-gradient(900px 500px at 15% 15%, rgba(255,61,191,0.20), transparent 55%),
-    radial-gradient(700px 500px at 85% 25%, rgba(86,214,255,0.14), transparent 60%),
-    radial-gradient(900px 700px at 50% 110%, rgba(255,255,255,0.06), transparent 55%);
+  padding: 56px 18px 32px;
 }
+
 .heroInner{
-  width: min(1400px, calc(100% - 40px));
+  max-width: 1050px;
   margin: 0 auto;
+  padding: 26px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+  border-radius: calc(var(--radius) + 6px);
+  box-shadow: var(--shadow);
+  position: relative;
 }
 
 .badge{
-  display:inline-block;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
   padding: 8px 12px;
   border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.04);
-  color: var(--muted);
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.78);
   font-size: 13px;
 }
 
-h1{
+.hero h1{
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.03;
   margin: 14px 0 10px;
-  font-size: clamp(34px, 5vw, 58px);
-  line-height: 1.05;
+  letter-spacing: -.5px;
 }
+
 .accent{
   background: linear-gradient(90deg, var(--accent), var(--accent2));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
+
 .lead{
-  max-width: 760px;
-  color: var(--muted);
-  font-size: 18px;
-  line-height: 1.6;
+  color: rgba(255,255,255,.78);
+  font-size: 16px;
+  max-width: 78ch;
+  line-height: 1.5;
+  margin: 0 0 16px;
 }
 
 .ctaRow{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
 }
 
 .btn{
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.03);
-  color: var(--text);
-  padding: 11px 14px;
-  border-radius: 12px;
+  border-radius: 14px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.90);
   cursor: pointer;
-  box-shadow: var(--shadow);
+  transition: all .12s ease;
 }
-.btn:hover{ border-color: rgba(255,255,255,0.25); }
+
+.btn:hover{
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.22);
+  transform: translateY(-1px);
+}
+
 .btn.primary{
-  background: linear-gradient(90deg, rgba(255,61,191,0.32), rgba(86,214,255,0.22));
+  border-color: rgba(255,79,216,.35);
+  background: rgba(255,79,216,.14);
 }
 
 .marquee{
-  margin-top: 28px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  margin-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  padding-top: 14px;
   overflow: hidden;
-  background: rgba(255,255,255,0.03);
-}
-.marqueeInner{
-  display:flex;
-  gap: 22px;
-  white-space: nowrap;
-  padding: 10px 12px;
-  animation: scroll 18s linear infinite;
-  color: rgba(255,255,255,0.78);
-  font-size: 13px;
-}
-@keyframes scroll{
-  from{ transform: translateX(0); }
-  to{ transform: translateX(-50%); }
+  opacity: .9;
 }
 
-.section{
-  width: 100%;
-  margin: 0 auto;
-  padding: 56px 20px;
+.marqueeInner{
+  display: inline-flex;
+  gap: 26px;
+  white-space: nowrap;
+  animation: marquee 18s linear infinite;
 }
-.section > *{
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+
+@keyframes marquee{
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* =========================
+   SECTIONS
+   ========================= */
+.section{
+  padding: 30px 18px;
+}
+
+.sectionHead{
+  max-width: 1050px;
+  margin: 0 auto 14px;
 }
 
 .sectionHead h2{
-  margin: 0;
-  font-size: 28px;
+  margin: 0 0 6px;
+  font-size: 22px;
+  letter-spacing: .2px;
 }
 
-.muted{ color: var(--muted); }
-.small{ font-size: 13px; }
+.muted{
+  color: var(--muted);
+  margin: 0;
+}
+
+.small{
+  font-size: 13px;
+  color: var(--muted2);
+}
 
 .grid3{
-  display:grid;
+  max-width: 1050px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 860px){
+  .grid3{ grid-template-columns: 1fr; }
+  .navLinks{ display: none; }
+}
+
+.stack{
+  max-width: 1050px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+}
+
+.card{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.cardK{
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.cardV{
+  color: rgba(255,255,255,.78);
+  line-height: 1.4;
+}
+
+.cardTitle{
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.callout{
+  max-width: 1050px;
+  margin: 14px auto 0;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+
+.callout ul{
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255,255,255,.78);
+  line-height: 1.5;
+}
+
+/* =========================
+   TABLE (Token)
+   ========================= */
+.table{
+  max-width: 1050px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(255,255,255,.03);
+}
+
+.tr{
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+  padding: 12px 14px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.tr:first-child{ border-top: 0; }
+
+.tdk{
+  color: rgba(255,255,255,.72);
+  font-weight: 700;
+}
+
+.tdv{
+  color: rgba(255,255,255,.88);
+}
+
+/* =========================
+   LINKS (Official)
+   ========================= */
+.linkGrid{
+  max-width: 1050px;
+  margin: 0 auto;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   margin-top: 18px;
 }
 
 @media (max-width: 820px){
-  .grid3{ grid-template-columns: 1fr; }
-  .navLinks{ display:none; }
+  .linkGrid{ grid-template-columns: 1fr; }
 }
 
-.card{
+.linkCard{
   border: 1px solid var(--border);
   background: rgba(255,255,255,0.04);
   border-radius: 16px;
   padding: 16px;
   box-shadow: var(--shadow);
-}
-.cardK{ color: rgba(255,255,255,0.7); font-size: 13px; }
-.cardV{ margin-top: 8px; font-size: 18px; font-weight: 700; }
-.cardTitle{ font-weight: 800; margin-bottom: 6px; }
-
-.callout{
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.03);
-  border-radius: 16px;
-  padding: 14px 16px;
-  margin-top: 16px;
-}
-.callout ul{
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
 }
 
-.stack{ display:grid; gap: 12px; margin-top: 18px; }
-.row{ margin-top: 14px; }
-
-.table{
-  margin-top: 18px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
+.linkCard:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.26);
+  background: rgba(255,255,255,0.06);
 }
-.tr{
-  display:grid;
-  grid-template-columns: 220px 1fr;
+
+.linkCardTop{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
   gap: 10px;
-  padding: 14px 16px;
-  border-top: 1px solid var(--border);
-  background: rgba(255,255,255,0.02);
+  margin-bottom: 8px;
 }
-.tr:first-child{ border-top: none; }
-.tdk{ color: rgba(255,255,255,0.75); }
-.tdv{ font-weight: 700; }
 
+.linkCardTitle{
+  font-weight: 900;
+  letter-spacing: .2px;
+  font-size: 16px;
+}
+
+.linkCardCta{
+  font-size: 13px;
+  color: rgba(255,255,255,0.78);
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
 .footer{
-  margin-top: 22px;
-  border-top: 1px solid var(--border);
-  padding-top: 16px;
+  max-width: 1050px;
+  margin: 16px auto 0;
+  padding: 10px 2px;
+  opacity: .9;
+}
+
+/* =========================
+   PUZZLE RAIN
+   ========================= */
+.puzzleRain{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .9;
+}
+
+.puzzlePieceSvg{
+  position: absolute;
+  top: -60px;
+  width: var(--sz);
+  height: var(--sz);
+  transform: translateX(0) rotate(var(--rot));
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  filter: drop-shadow(0 10px 14px rgba(0,0,0,.25));
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 3 tipos de piezas (SVG inline) */
+.puzzlePieceSvg.p1{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23ff4fd8' fill-opacity='.85' d='M22 10c0-3 2-6 6-6s6 3 6 6c0 2-1 4-3 5h9c3 0 6 3 6 6v8c1-2 3-3 5-3 3 0 6 2 6 6s-3 6-6 6c-2 0-4-1-5-3v9c0 3-3 6-6 6h-9c2 1 3 3 3 5 0 3-2 6-6 6s-6-3-6-6c0-2 1-4 3-5h-9c-3 0-6-3-6-6v-9c-1 2-3 3-5 3-3 0-6-2-6-6s3-6 6-6c2 0 4 1 5 3v-8c0-3 3-6 6-6h9c-2-1-3-3-3-5z'/%3E%3C/svg%3E");
+}
+
+.puzzlePieceSvg.p2{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%236df6ff' fill-opacity='.80' d='M42 10c0-3-2-6-6-6s-6 3-6 6c0 2 1 4 3 5H24c-3 0-6 3-6 6v9c-1-2-3-3-5-3-3 0-6 2-6 6s3 6 6 6c2 0 4-1 5-3v9c0 3 3 6 6 6h9c-2 1-3 3-3 5 0 3 2 6 6 6s6-3 6-6c0-2-1-4-3-5h9c3 0 6-3 6-6v-9c1 2 3 3 5 3 3 0 6-2 6-6s-3-6-6-6c-2 0-4 1-5 3v-9c0-3-3-6-6-6h-9c2-1 3-3 3-5z'/%3E%3C/svg%3E");
+}
+
+.puzzlePieceSvg.p3{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23ffffff' fill-opacity='.22' d='M22 10c0-3 2-6 6-6s6 3 6 6c0 2-1 4-3 5h9c3 0 6 3 6 6v8c1-2 3-3 5-3 3 0 6 2 6 6s-3 6-6 6c-2 0-4-1-5-3v9c0 3-3 6-6 6h-9c2 1 3 3 3 5 0 3-2 6-6 6s-6-3-6-6c0-2 1-4 3-5h-9c-3 0-6-3-6-6v-9c-1 2-3 3-5 3-3 0-6-2-6-6s3-6 6-6c2 0 4 1 5 3v-8c0-3 3-6 6-6h9c-2-1-3-3-3-5z'/%3E%3C/svg%3E");
+}
+
+@keyframes fall{
+  0%{
+    transform: translateX(0) translateY(-80px) rotate(var(--rot));
+  }
+  100%{
+    transform: translateX(var(--drift)) translateY(calc(100vh + 120px)) rotate(calc(var(--rot) + 220deg));
+  }
+}
+/* =========================
+   CENTER FIX (Lore + Community CTA rows)
+   ========================= */
+.ctaRow{
+  max-width: 1050px;
+  margin: 12px auto 0;
+  justify-content: flex-start; /* queda alineado con el contenido */
+}
+
+/* El footer ya está con max-width en tu CSS, esto lo refuerza */
+.footer{
+  max-width: 1050px;
+  margin: 16px auto 0;
+}
+
+/* =========================
+   NEON NAV (top buttons + pills)
+   ========================= */
+.navLinks button{
+  border: 1px solid rgba(109,246,255,.22);
+  background: rgba(109,246,255,.06);
+  color: rgba(255,255,255,.90);
+  box-shadow:
+    0 0 0 1px rgba(255,79,216,.06),
+    0 0 18px rgba(109,246,255,.10);
+}
+
+.navLinks button:hover{
+  border-color: rgba(255,79,216,.35);
+  background: rgba(255,79,216,.10);
+  box-shadow:
+    0 0 26px rgba(255,79,216,.18),
+    0 0 22px rgba(109,246,255,.10);
+  transform: translateY(-1px);
+}
+
+.navLinks button:focus-visible{
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(255,79,216,.22),
+    0 0 22px rgba(109,246,255,.10);
+}
+
+/* Pills (EN/ES, TG, X) con glow suave */
+.pill{
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.04),
+    0 0 16px rgba(109,246,255,.08);
+}
+
+.pill.primary{
+  box-shadow:
+    0 0 0 1px rgba(255,79,216,.10),
+    0 0 18px rgba(255,79,216,.16);
+}
+
+.pill.neon{
+  box-shadow:
+    0 0 0 1px rgba(109,246,255,.10),
+    0 0 18px rgba(109,246,255,.16);
+}
+/* =========================
+   Pills = same hover animation as buttons
+   ========================= */
+.pill{
+  transition: all .12s ease;
+}
+
+.pill:hover{
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.22);
+  transform: translateY(-1px);
+}
+
+.pill:active{
+  transform: translateY(0px);
+}
+/* =========================
+   Container alignment + token note
+   ========================= */
+.container{
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.tokenNote{
+  margin-top: 10px;
+}
+/* =========================
+   Center the last section (Community)
+   ========================= */
+#community .sectionHead{
+  text-align: center;
+}
+
+#community .ctaRow{
+  justify-content: center;
+}
+
+#community .footer{
+  text-align: center;
+}
+/* =========================
+   NAV smoother blend
+   ========================= */
+.nav{
+  position: sticky;
+  top: 0;
+  isolation: isolate;
+
+  /* más suave + continuo */
+  background: rgba(10,12,16,.52);
+  background-image:
+    radial-gradient(900px 220px at 15% 0%, rgba(255,79,216,.14), transparent 60%),
+    radial-gradient(900px 220px at 85% 0%, rgba(109,246,255,.10), transparent 60%),
+    linear-gradient(180deg, rgba(10,12,16,.85), rgba(10,12,16,.40));
+  backdrop-filter: blur(14px) saturate(1.15);
+
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 10px 30px rgba(0,0,0,.28);
+}
+/* =========================
+   Softer card shadows (reduces banding)
+   ========================= */
+.card,
+.linkCard,
+.callout,
+.table,
+.heroInner{
+  box-shadow: 0 10px 24px rgba(0,0,0,.22);
+  border-color: rgba(255,255,255,.11);
+}
+
+/* un toque más “glass” para mezclar con el fondo */
+.card,
+.linkCard,
+.callout{
+  background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.028));
+}
+/* =========================
+   FIX: bandas horizontales (shadows + row stripe)
+   ========================= */
+
+/* 1) Pruebas: evitar que la sombra de 3 cards juntas forme una franja */
+.grid3 .card{
+  /* sombra más “glow” y menos caída vertical */
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.07),
+    0 0 26px rgba(0,0,0,.20);
+}
+
+/* 2) Token: tabla con sombra suave (sin franja) */
+.table{
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.07),
+    0 0 30px rgba(0,0,0,.22);
+}
+
+/* 3) Token: eliminar “stripe” fuerte en filas */
+.table .tr{
+  background: transparent !important;
+}
+
+/* Bordes más suaves entre filas (sin banda) */
+.table .tr{
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.table .tr:first-child{
+  border-top: none;
+}
+
+/* (Opcional) hover sutil para que se sienta interactivo pero sin marcar franja */
+.table .tr:hover{
+  background: rgba(255,255,255,.02) !important;
+}
+/* =========================
+   NEON BUTTONS (ALL .btn)
+   ========================= */
+
+/* Base (todos los botones) */
+.btn{
+  border: 1px solid rgba(109,246,255,.22) !important;
+  background: rgba(109,246,255,.06) !important;
+  color: rgba(255,255,255,.92) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(255,79,216,.07),
+    0 0 22px rgba(109,246,255,.12),
+    0 10px 24px rgba(0,0,0,.22) !important;
+
+  transition:
+    transform .12s ease,
+    box-shadow .12s ease,
+    border-color .12s ease,
+    background .12s ease,
+    filter .12s ease;
+}
+
+/* Primary (violeta más fuerte) */
+.btn.primary{
+  border-color: rgba(255,79,216,.35) !important;
+  background: rgba(255,79,216,.12) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(255,79,216,.12),
+    0 0 28px rgba(255,79,216,.18),
+    0 0 20px rgba(109,246,255,.08),
+    0 10px 24px rgba(0,0,0,.22) !important;
+}
+
+/* Hover: más glow + levanta un pelín */
+.btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,79,216,.45) !important;
+  background: rgba(255,79,216,.14) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(255,79,216,.16),
+    0 0 34px rgba(255,79,216,.22),
+    0 0 26px rgba(109,246,255,.12),
+    0 16px 28px rgba(0,0,0,.26) !important;
+
+  filter: brightness(1.06);
+}
+
+/* Active: vuelve a su lugar */
+.btn:active{
+  transform: translateY(0px);
+  filter: brightness(1.02);
+}
+
+/* Focus accesible (tecla tab) */
+.btn:focus-visible{
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(109,246,255,.18),
+    0 0 0 1px rgba(255,79,216,.16),
+    0 0 30px rgba(109,246,255,.12) !important;
+}
+/* =========================
+   CYAN NEON ONLY (removes purple/magenta)
+   Paste this AFTER the previous neon block
+   ========================= */
+
+/* Kill any gradients that might be adding purple */
+.btn, .btn.primary{
+  background-image: none !important;
+}
+
+/* Base: all buttons cyan neon */
+.btn{
+  border: 1px solid rgba(109,246,255,.30) !important;
+  background: rgba(109,246,255,.05) !important;
+  color: rgba(255,255,255,.92) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(109,246,255,.10),
+    0 0 26px rgba(109,246,255,.14),
+    0 10px 24px rgba(0,0,0,.22) !important;
+}
+
+/* Primary: same cyan, just a bit stronger (NO purple) */
+.btn.primary{
+  border-color: rgba(109,246,255,.45) !important;
+  background: rgba(109,246,255,.09) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(109,246,255,.14),
+    0 0 34px rgba(109,246,255,.20),
+    0 10px 24px rgba(0,0,0,.22) !important;
+}
+
+/* Hover: stronger cyan glow + lift */
+.btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(109,246,255,.62) !important;
+  background: rgba(109,246,255,.12) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(109,246,255,.18),
+    0 0 46px rgba(109,246,255,.24),
+    0 16px 28px rgba(0,0,0,.26) !important;
+
+  filter: brightness(1.05);
+}
+
+.btn:active{
+  transform: translateY(0px);
+  filter: brightness(1.02);
+}
+
+/* Focus (tab) cyan */
+.btn:focus-visible{
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(109,246,255,.18),
+    0 0 36px rgba(109,246,255,.18) !important;
+}
+/* =========================
+   CYAN base + PURPLE only on hover
+   Paste this at the VERY end of App.css
+   ========================= */
+
+/* BASE (sin violeta) */
+.btn,
+.btn.primary{
+  background-image: none !important;
+
+  border: 1px solid rgba(109,246,255,.32) !important;
+  background: rgba(109,246,255,.06) !important;
+  color: rgba(255,255,255,.92) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(109,246,255,.10),
+    0 0 26px rgba(109,246,255,.14),
+    0 10px 24px rgba(0,0,0,.22) !important;
+
+  transition:
+    transform .12s ease,
+    box-shadow .12s ease,
+    border-color .12s ease,
+    background .12s ease,
+    filter .12s ease;
+}
+
+/* si querés que "primary" destaque un poco más pero sin violeta */
+.btn.primary{
+  border-color: rgba(109,246,255,.45) !important;
+  background: rgba(109,246,255,.09) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(109,246,255,.14),
+    0 0 34px rgba(109,246,255,.20),
+    0 10px 24px rgba(0,0,0,.22) !important;
+}
+
+/* HOVER (violeta SOLO al pasar el mouse) */
+.btn:hover,
+.btn.primary:hover{
+  transform: translateY(-1px);
+
+  border-color: rgba(255,79,216,.60) !important;
+  background: rgba(255,79,216,.10) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(255,79,216,.18),
+    0 0 44px rgba(255,79,216,.24),
+    0 0 22px rgba(109,246,255,.10),
+    0 16px 28px rgba(0,0,0,.26) !important;
+
+  filter: brightness(1.05);
+}
+
+.btn:active,
+.btn.primary:active{
+  transform: translateY(0px);
+  filter: brightness(1.02);
+}
+
+/* Focus (tab) lo dejo cian por accesibilidad */
+.btn:focus-visible,
+.btn.primary:focus-visible{
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(109,246,255,.18),
+    0 0 36px rgba(109,246,255,.18) !important;
 }

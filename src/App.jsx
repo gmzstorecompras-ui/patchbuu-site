@@ -2,23 +2,39 @@
 import "./App.css";
 import { STRINGS } from "./i18n";
 
-const X_PROFILE_URL = "https://x.com/Patchbuu"; // Cambialo si tu handle cambia
+const X_PROFILE_URL = "https://x.com/Patchbuu";
+// ✅ Pegá tu link real acá (grupo o canal). Si lo dejás vacío, se ocultan los botones TG.
+const TELEGRAM_URL = "https://t.me/+d4wZY1wKinM5NmRh";
 
-function Section({ id, title, subtitle, className = "", children }) {
+function Section({ id, title, subtitle, children }) {
   return (
-    <section id={id} className={`section ${className}`.trim()}>
+    <section id={id} className="section">
       <div className="sectionHead">
         <h2>{title}</h2>
-        {subtitle && <p className="muted">{subtitle}</p>}
+        {subtitle ? <p className="muted">{subtitle}</p> : null}
       </div>
       {children}
     </section>
   );
 }
 
+function LinkCard({ title, desc, href, cta }) {
+  return (
+    <a className="linkCard" href={href} target="_blank" rel="noreferrer">
+      <div className="linkCardTop">
+        <div className="linkCardTitle">{title}</div>
+        <div className="linkCardCta">{cta} →</div>
+      </div>
+      <div className="muted">{desc}</div>
+    </a>
+  );
+}
+
 export default function App() {
   const [lang, setLang] = useState(() => localStorage.getItem("patchbuu_lang") || "en");
   const t = useMemo(() => STRINGS[lang], [lang]);
+
+  const hasTelegram = Boolean(TELEGRAM_URL && TELEGRAM_URL.startsWith("http"));
 
   useEffect(() => {
     document.title = t.metaTitle;
@@ -34,29 +50,30 @@ export default function App() {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // ✅ Genera piezas SVG con variación (posición/tamaño/drift/rot/velocidad)
+  // Puzzle “rain” decorativo
   const pieces = useMemo(() => {
-    const count = 16; // subí/bajá densidad
+    const count = 16;
     const types = ["p1", "p2", "p3"];
     const rand = (a, b) => a + Math.random() * (b - a);
 
     return Array.from({ length: count }, (_, i) => {
       const type = types[i % types.length];
-      const left = `${rand(2, 98).toFixed(2)}%`;
-      const size = `${rand(18, 34).toFixed(0)}px`; // tamaño
-      const drift = `${rand(-28, 28).toFixed(0)}px`; // deriva lateral
-      const rot = `${rand(0, 360).toFixed(0)}deg`; // rot inicial
-      const dur = `${rand(18, 32).toFixed(2)}s`; // duración caída
-      const delay = `-${rand(0, 28).toFixed(2)}s`; // delay negativo = ya vienen cayendo
-      const opacity = rand(0.12, 0.28).toFixed(2); // más pro, menos invasivo
-
-      return { key: i, type, left, size, drift, rot, dur, delay, opacity };
+      return {
+        key: i,
+        type,
+        left: `${rand(2, 98).toFixed(2)}%`,
+        size: `${rand(18, 34).toFixed(0)}px`,
+        drift: `${rand(-28, 28).toFixed(0)}px`,
+        rot: `${rand(0, 360).toFixed(0)}deg`,
+        dur: `${rand(18, 32).toFixed(2)}s`,
+        delay: `-${rand(0, 28).toFixed(2)}s`,
+        opacity: rand(0.12, 0.28).toFixed(2),
+      };
     });
   }, []);
 
   return (
     <div className="page">
-      {/* ✅ Fondo animado SVG/CSS */}
       <div className="puzzleRain" aria-hidden="true">
         {pieces.map((p) => (
           <span
@@ -76,17 +93,24 @@ export default function App() {
       </div>
 
       <header className="nav">
-        <div className="brand" onClick={() => scrollTo("top")} role="button" tabIndex={0}>
+        <div
+          className="brand"
+          onClick={() => scrollTo("top")}
+          onKeyDown={(e) => (e.key === "Enter" ? scrollTo("top") : null)}
+          role="button"
+          tabIndex={0}
+          aria-label="Go to top"
+        >
           <span className="dot" />
           <span className="brandName">PatchBuu</span>
           <span className="brandTag">🍬🩹</span>
         </div>
 
-        <nav className="navLinks">
+        <nav className="navLinks" aria-label="Site navigation">
           <button onClick={() => scrollTo("proof")}>{t.nav.proof}</button>
           <button onClick={() => scrollTo("lore")}>{t.nav.lore}</button>
           <button onClick={() => scrollTo("token")}>{t.nav.token}</button>
-          <button onClick={() => scrollTo("directions")}>{t.nav.directions}</button>
+          <button onClick={() => scrollTo("links")}>{t.nav.links}</button>
           <button onClick={() => scrollTo("community")}>{t.nav.community}</button>
         </nav>
 
@@ -94,13 +118,20 @@ export default function App() {
           <button className="pill neon" onClick={toggleLang} title="Toggle language">
             {t.toggle}
           </button>
-          <a className="pill primary" href={X_PROFILE_URL} target="_blank" rel="noreferrer">
+
+          {hasTelegram ? (
+            <a className="pill" href={TELEGRAM_URL} target="_blank" rel="noreferrer" title="Telegram">
+              TG
+            </a>
+          ) : null}
+
+          <a className="pill primary" href={X_PROFILE_URL} target="_blank" rel="noreferrer" title="X">
             X
           </a>
         </div>
       </header>
 
-      <main id="top">
+      <main id="top" className="main">
         <section className="hero">
           <div className="heroInner">
             <div className="badge">{t.hero.badge}</div>
@@ -118,6 +149,11 @@ export default function App() {
               <button className="btn" onClick={() => scrollTo("lore")}>
                 {t.hero.ctaSecondary}
               </button>
+              {hasTelegram ? (
+                <a className="btn" href={TELEGRAM_URL} target="_blank" rel="noreferrer">
+                  {t.hero.ctaTelegram}
+                </a>
+              ) : null}
             </div>
 
             <div className="marquee" aria-hidden="true">
@@ -158,10 +194,15 @@ export default function App() {
             ))}
           </div>
 
-          <div className="row">
+          <div className="ctaRow">
             <a className="btn primary" href={X_PROFILE_URL} target="_blank" rel="noreferrer">
               {t.lore.cta}
             </a>
+            {hasTelegram ? (
+              <a className="btn" href={TELEGRAM_URL} target="_blank" rel="noreferrer">
+                {t.lore.ctaTelegram}
+              </a>
+            ) : null}
           </div>
         </Section>
 
@@ -175,14 +216,32 @@ export default function App() {
             ))}
           </div>
 
-          <p className="muted small">{t.token.note}</p>
+          <div className="container">
+  <p className="muted small tokenNote">{t.token.note}</p>
+</div>
+
         </Section>
 
-        <Section id="directions" title={t.directions.title} subtitle={t.directions.subtitle}>
+        <Section id="links" title={t.links.title} subtitle={t.links.subtitle}>
+          <div className="linkGrid">
+            <LinkCard title="X" desc={t.links.xDesc} href={X_PROFILE_URL} cta={t.links.open} />
+
+            {hasTelegram ? (
+              <LinkCard title="Telegram" desc={t.links.tgDesc} href={TELEGRAM_URL} cta={t.links.join} />
+            ) : null}
+
+            <LinkCard
+              title="Website"
+              desc={t.links.siteDesc}
+              href={typeof window !== "undefined" ? window.location.origin : "/"}
+              cta={t.links.view}
+            />
+          </div>
+
           <div className="callout">
             <ul>
-              {t.directions.items.map((x, i) => (
-                <li key={i}>{x}</li>
+              {t.links.bullets.map((b, i) => (
+                <li key={i}>{b}</li>
               ))}
             </ul>
           </div>
@@ -193,10 +252,14 @@ export default function App() {
             <a className="btn primary" href={X_PROFILE_URL} target="_blank" rel="noreferrer">
               {t.community.buttons.x}
             </a>
-            <button className="btn" disabled title="Coming soon">
-              {t.community.buttons.telegram}
-            </button>
-            <button className="btn" disabled title="Coming soon">
+
+            {hasTelegram ? (
+              <a className="btn" href={TELEGRAM_URL} target="_blank" rel="noreferrer">
+                {t.community.buttons.telegram}
+              </a>
+            ) : null}
+
+            <button className="btn" onClick={() => scrollTo("links")}>
               {t.community.buttons.links}
             </button>
           </div>

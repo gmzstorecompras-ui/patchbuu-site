@@ -1,185 +1,210 @@
 ﻿export const STRINGS = {
   en: {
-    metaTitle: "PatchBuu | Born in 3D. Made of patches. Cute chaos.",
-    metaDesc:
-      "PatchBuu is a community-first meme character born in 3D, made of patches, powered by cute chaos. No promises. No DMs first.",
+  metaTitle: "PatchBuu — Born in 3D. Made of patches. Cute chaos.",
+  metaDesc:
+    "PatchBuu is a real 3D-built character and community. Official links, lore, and safety. EN/ES.",
 
-    toggle: "EN / ES",
+  toggle: "EN/ES",
 
-    nav: {
-      proof: "Proof",
-      lore: "Lore",
-      token: "Token",
-      directions: "Directions",
-      community: "Community",
-    },
-
-    hero: {
-      title: "Born in 3D.",
-      titleAccent: "Made of patches.",
-      subtitle:
-        "PatchBuu is real. A physical 3D character and a community building lore through memes. No promises. No hype.",
-      ctaPrimary: "See the proof",
-      ctaSecondary: "Read the lore",
-      badge: "Anti-scam: team never DMs first.",
-    },
-
-    proof: {
-      title: "Proof",
-      subtitle:
-        "Not a PNG. Not an AI-generated mascot. PatchBuu is a real 3D figure.",
-      cards: [
-        { k: "Real", v: "Physical 3D figure" },
-        { k: "Patches", v: "Patchwork colors" },
-        { k: "Updates", v: "Photos & timelapses" },
-      ],
-      bullets: [
-        "Only trust official links posted on this site and on the X profile.",
-        "If someone DMs you pretending to be the team, it’s not us.",
-      ],
-    },
-
-    lore: {
-      title: "Lore",
-      subtitle:
-        "Each patch is a chapter. We’ll build the Candyverse together (EN/ES).",
-      items: [
-        { title: "Patch #1 — Origin", text: "Born in 3D. First sighting in the Candyverse." },
-        { title: "Patch #2 — Colors", text: "Every color has a mood, a meme, and a story." },
-        { title: "Patch #3 — Cute chaos", text: "We don’t promise. We create." },
-      ],
-      cta: "Drop a meme idea on X",
-    },
-
-    token: {
-      title: "Token",
-      subtitle:
-        "Not live yet. When it’s live, the contract address (CA) and links will be posted here.",
-      rows: [
-        { k: "Chain", v: "Solana" },
-        { k: "Contract (CA)", v: "Coming soon" },
-        { k: "Buy", v: "Coming soon" },
-        { k: "Chart", v: "Coming soon" },
-      ],
-      note:
-        "No financial advice. Never trust DMs. Official links only.",
-    },
-
-    directions: {
-      title: "What could happen next",
-      subtitle:
-        "No dates, no promises — just possible directions the community can vote on.",
-      items: [
-        "PatchCam / behind-the-scenes timelapses",
-        "Weekly meme missions (EN/ES)",
-        "Lore drops by color patches",
-        "Community collabs & raids",
-      ],
-    },
-
-    community: {
-      title: "Community",
-      subtitle:
-        "This only works if people participate. Keep it fun. Keep it real.",
-      buttons: {
-        x: "Open X profile",
-        telegram: "Telegram (soon)",
-        links: "Official links (soon)",
-      },
-      footer:
-        "NFA • Team never DMs first • Only trust links posted on this site/profile.",
-    },
+  nav: {
+    proof: "Proof",
+    lore: "Lore",
+    token: "Token",
+    links: "Links",
+    community: "Community",
   },
 
-  es: {
-    metaTitle: "PatchBuu | Nació en 3D. Hecho de parches. Caos cute.",
-    metaDesc:
-      "PatchBuu es un personaje meme comunidad-first: nació en 3D, hecho de parches, con caos cute. Sin promesas. Sin DMs primero.",
+  hero: {
+    badge: "Born in 3D • Made of patches • Cute chaos",
+    title: "PatchBuu is",
+    titleAccent: "real.",
+    subtitle:
+      "A physical 3D-built character turned into a community world. No fake promises — just proof, lore, and vibes. We use “AI” only as a creative tool to animate the story, not to pretend it’s something it isn’t.",
+    ctaPrimary: "See proof",
+    ctaSecondary: "Read lore",
+    ctaTelegram: "Join Telegram",
+  },
 
-    toggle: "EN / ES",
+  proof: {
+    title: "Proof",
+    subtitle: "What makes PatchBuu different",
+    cards: [
+      { k: "Real", v: "Physical 3D printed object." },
+      { k: "Transparent", v: "Official links + safety rules." },
+      { k: "Community", v: "Raids, memes and coordination together." },
+    ],
+    bullets: [
+      "PatchBuu is a real, tangible character.",
+      "We can “animate” it in content as a narrative device.",
+      "Only trust official links published on this website.",
+    ],
+  },
+
+  lore: {
+    title: "Lore",
+    subtitle: "Born in 3D. Made of patches. Cute chaos.",
+    items: [
+      {
+        title: "The Patch Core",
+        text: "PatchBuu is stitched from colorful pieces — each patch is a meme, a memory, or a moment from the community.",
+      },
+      {
+        title: "Candyverse breach",
+        text: "A sweet dimension where cute chaos spreads fast. PatchBuu doesn’t talk — it reacts, appears, and causes mischief.",
+      },
+      {
+        title: "How “AI” fits",
+        text: "We don’t claim PatchBuu is AI. We use AI as a creative tool to animate scenes, moods and mini-stories.",
+      },
+    ],
+    cta: "Follow on X",
+    ctaTelegram: "Join Telegram",
+  },
+
+  token: {
+    title: "Token",
+    subtitle: "Status and transparency",
+    rows: [
+      { k: "Status", v: "Coming soon" },
+      { k: "Chain", v: "Solana (planned)" },
+      { k: "CA", v: "TBA (posted here + on official X)" },
+      { k: "Supply", v: "1,000,000,000" },
+      { k: "Taxes", v: "0/0 (planned)" },
+    ],
+    note:
+      "Anti-scam: PatchBuu will never DM you first. Always verify links and the CA only on this website, on the official Telegram, and on the official X.",
+  },
+
+  links: {
+    title: "Official Links",
+    subtitle: "Only trust links posted here and on the official X profile.",
+    open: "Open",
+    join: "Join",
+    view: "View",
+    xDesc: "Main updates, proof posts, lore drops and announcements.",
+    tgDesc: "Community chat, raids, coordination and meme missions.",
+    siteDesc: "This site is the source of truth for official links and CA (when live).",
+    bullets: [
+      "The team never DMs first.",
+      "Never share your seed. Don’t connect your wallet from random links.",
+      "If someone asks for money / “verification” / “support”, it’s a scam.",
+    ],
+  },
+
+  community: {
+    title: "Community",
+    subtitle: "Cute chaos is better together.",
+    buttons: {
+      x: "Open X profile",
+      telegram: "Join Telegram",
+      links: "Official links",
+    },
+    footer: "© PatchBuu — Keep it cute. Keep it safe.",
+  },
+},
+
+
+  es: {
+    metaTitle: "PatchBuu — Nació en 3D. Hecho de parches. Caos cute.",
+    metaDesc:
+      "PatchBuu es un personaje real impreso en 3D + comunidad. Links oficiales, lore y seguridad. EN/ES.",
+
+    toggle: "EN/ES",
 
     nav: {
-      proof: "Prueba",
+      proof: "Pruebas",
       lore: "Lore",
       token: "Token",
-      directions: "Direcciones",
+      links: "Links",
       community: "Comunidad",
     },
 
     hero: {
-      title: "Nació en 3D.",
-      titleAccent: "Hecho de parches.",
+      badge: "Nació en 3D • Hecho de parches • Caos cute",
+      title: "PatchBuu es",
+      titleAccent: "real.",
       subtitle:
-        "PatchBuu es real. Un personaje físico en 3D y una comunidad creando lore con memes. Sin promesas. Sin humo.",
-      ctaPrimary: "Ver la prueba",
-      ctaSecondary: "Leer el lore",
-      badge: "Anti-scam: el equipo nunca escribe primero.",
+        "Un personaje físico impreso en 3D convertido en un mundo de comunidad. Sin humo — solo pruebas, lore y vibra. Usamos “IA” solo como herramienta creativa para animar la historia, no para fingir algo que no es.",
+      ctaPrimary: "Ver pruebas",
+      ctaSecondary: "Leer lore",
+      ctaTelegram: "Unirme a Telegram",
     },
 
     proof: {
-      title: "Prueba",
-      subtitle:
-        "No es un PNG. No es una mascota generada por IA. PatchBuu es una figura real en 3D.",
+      title: "Pruebas",
+      subtitle: "Qué hace diferente a PatchBuu",
       cards: [
-        { k: "Real", v: "Figura física en 3D" },
-        { k: "Parches", v: "Colores patchwork" },
-        { k: "Updates", v: "Fotos y timelapses" },
+        { k: "Real", v: "Objeto físico impreso en 3D." },
+        { k: "Transparente", v: "Links oficiales + reglas de seguridad." },
+        { k: "Comunidad", v: "Raids, memes y coordinación juntos." },
       ],
       bullets: [
-        "Solo confiar en links oficiales publicados en esta web y en el perfil de X.",
-        "Si alguien te escribe por DM diciendo ser el equipo, no somos nosotros.",
+        "PatchBuu es un personaje real, tangible.",
+        "Podemos “animarlo” en contenido como recurso narrativo.",
+        "Confiá solo en los links oficiales publicados en esta web.",
       ],
     },
 
     lore: {
       title: "Lore",
-      subtitle:
-        "Cada parche es un capítulo. Construimos el Candyverse juntos (EN/ES).",
+      subtitle: "Nació en 3D. Hecho de parches. Caos cute.",
       items: [
-        { title: "Patch #1 — Origen", text: "Nació en 3D. Primera aparición en el Candyverse." },
-        { title: "Patch #2 — Colores", text: "Cada color tiene un mood, un meme y una historia." },
-        { title: "Patch #3 — Caos cute", text: "No prometemos. Creamos." },
+        {
+          title: "El Patch Core",
+          text: "PatchBuu está armado con piezas de colores — cada parche es un meme, un recuerdo o un momento de la comunidad.",
+        },
+        {
+          title: "Brecha al Candyverse",
+          text: "Una dimensión dulce donde el caos cute se contagia rápido. PatchBuu no habla — reacciona, aparece y hace travesuras.",
+        },
+        {
+          title: "Cómo entra la “IA”",
+          text: "No decimos que PatchBuu sea IA. Usamos IA como herramienta creativa para animar escenas, moods y mini-historias.",
+        },
       ],
-      cta: "Dejá tu idea de meme en X",
+      cta: "Seguir en X",
+      ctaTelegram: "Unirme a Telegram",
     },
 
     token: {
       title: "Token",
-      subtitle:
-        "Todavía no está live. Cuando lo esté, el contrato (CA) y links van a estar acá.",
+      subtitle: "Estado y transparencia",
       rows: [
-        { k: "Red", v: "Solana" },
-        { k: "Contrato (CA)", v: "Próximamente" },
-        { k: "Compra", v: "Próximamente" },
-        { k: "Chart", v: "Próximamente" },
+        { k: "Estado", v: "Próximamente" },
+        { k: "Red", v: "Solana (plan)" },
+        { k: "CA", v: "TBA (se publica acá + en X oficial)" },
+        { k: "Supply", v: "1.000.000.000" },
+        { k: "Impuestos", v: "0/0 (plan)" },
       ],
       note:
-        "No es asesoramiento financiero. Nunca confíes en DMs. Solo links oficiales.",
+        "Anti-scam: PatchBuu nunca te va a escribir primero por DM. Verificá siempre los links y el CA solo en esta web, en telegram y en el X oficial.",
     },
 
-    directions: {
-      title: "Qué podría pasar después",
-      subtitle:
-        "Sin fechas, sin promesas — solo direcciones posibles que la comunidad puede votar.",
-      items: [
-        "PatchCam / timelapses detrás de escena",
-        "Misiones de memes semanales",
-        "Lore drops por colores/parches",
-        "Colabs y raids de comunidad",
+    links: {
+      title: "Links oficiales",
+      subtitle: "Confiá solo en los links publicados acá y en el X oficial.",
+      open: "Abrir",
+      join: "Unirme",
+      view: "Ver",
+      xDesc: "Updates principales, pruebas, lore drops y anuncios.",
+      tgDesc: "Chat de comunidad, raids, coordinación y misiones de memes.",
+      siteDesc: "Esta web es la fuente de verdad para links oficiales y el CA (cuando esté live).",
+      bullets: [
+        "El equipo nunca escribe primero por DM.",
+        "Nunca compartas tu seed. No conectes tu wallet desde links random.",
+        "Si alguien pide dinero / “verificación” / “soporte”, es estafa.",
       ],
     },
 
     community: {
       title: "Comunidad",
-      subtitle:
-        "Esto solo funciona si la gente participa. Que sea divertido y real.",
+      subtitle: "El caos cute se disfruta en grupo.",
       buttons: {
         x: "Abrir perfil de X",
-        telegram: "Telegram (pronto)",
-        links: "Links oficiales (pronto)",
+        telegram: "Unirme a Telegram",
+        links: "Links oficiales",
       },
-      footer:
-        "NFA • El equipo nunca escribe primero • Solo links publicados en esta web/perfil.",
+      footer: "© PatchBuu — Cute, pero seguro.",
     },
   },
 };
