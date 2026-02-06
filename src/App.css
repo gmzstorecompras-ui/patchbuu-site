@@ -1,5 +1,5 @@
 ﻿/* =========================
-   PatchBuu — UI (Pro)
+   $PINGY — UI (Pro)
    ========================= */
 
 :root{
@@ -10,10 +10,13 @@
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.72);
   --muted2: rgba(255,255,255,.62);
-  --accent: #ff4fd8;
+  --accent: #7cff6b;
   --accent2: #6df6ff;
   --radius: 18px;
 }
+
+/* (El resto del archivo queda igual al tuyo) */
+
 
 .page{
   min-height: 100vh;
@@ -56,7 +59,7 @@
   height: 12px;
   border-radius: 99px;
   background: radial-gradient(circle at 35% 35%, var(--accent2), var(--accent));
-  box-shadow: 0 0 0 4px rgba(255,255,255,.06), 0 0 22px rgba(255,79,216,.25);
+  box-shadow: 0 0 0 4px rgba(255,255,255,.06), 0 0 22px rgba(124,255,107,.25);
 }
 
 .brandName{
@@ -113,8 +116,8 @@
 }
 
 .pill.primary{
-  border-color: rgba(255,79,216,.35);
-  background: rgba(255,79,216,.12);
+  border-color: rgba(124,255,107,.35);
+  background: rgba(124,255,107,.12);
 }
 
 .pill.neon{
@@ -198,8 +201,8 @@
 }
 
 .btn.primary{
-  border-color: rgba(255,79,216,.35);
-  background: rgba(255,79,216,.14);
+  border-color: rgba(124,255,107,.35);
+  background: rgba(124,255,107,.14);
 }
 
 .marquee{
@@ -474,15 +477,15 @@
   background: rgba(109,246,255,.06);
   color: rgba(255,255,255,.90);
   box-shadow:
-    0 0 0 1px rgba(255,79,216,.06),
+    0 0 0 1px rgba(124,255,107,.06),
     0 0 18px rgba(109,246,255,.10);
 }
 
 .navLinks button:hover{
-  border-color: rgba(255,79,216,.35);
-  background: rgba(255,79,216,.10);
+  border-color: rgba(124,255,107,.35);
+  background: rgba(124,255,107,.10);
   box-shadow:
-    0 0 26px rgba(255,79,216,.18),
+    0 0 26px rgba(124,255,107,.18),
     0 0 22px rgba(109,246,255,.10);
   transform: translateY(-1px);
 }
@@ -490,7 +493,7 @@
 .navLinks button:focus-visible{
   outline: none;
   box-shadow:
-    0 0 0 3px rgba(255,79,216,.22),
+    0 0 0 3px rgba(124,255,107,.22),
     0 0 22px rgba(109,246,255,.10);
 }
 
@@ -503,8 +506,8 @@
 
 .pill.primary{
   box-shadow:
-    0 0 0 1px rgba(255,79,216,.10),
-    0 0 18px rgba(255,79,216,.16);
+    0 0 0 1px rgba(124,255,107,.10),
+    0 0 18px rgba(124,255,107,.16);
 }
 
 .pill.neon{
@@ -564,7 +567,7 @@
   /* más suave + continuo */
   background: rgba(10,12,16,.52);
   background-image:
-    radial-gradient(900px 220px at 15% 0%, rgba(255,79,216,.14), transparent 60%),
+    radial-gradient(900px 220px at 15% 0%, rgba(124,255,107,.14), transparent 60%),
     radial-gradient(900px 220px at 85% 0%, rgba(109,246,255,.10), transparent 60%),
     linear-gradient(180deg, rgba(10,12,16,.85), rgba(10,12,16,.40));
   backdrop-filter: blur(14px) saturate(1.15);
@@ -637,7 +640,7 @@
   color: rgba(255,255,255,.92) !important;
 
   box-shadow:
-    0 0 0 1px rgba(255,79,216,.07),
+    0 0 0 1px rgba(124,255,107,.07),
     0 0 22px rgba(109,246,255,.12),
     0 10px 24px rgba(0,0,0,.22) !important;
 
@@ -651,12 +654,12 @@
 
 /* Primary (violeta más fuerte) */
 .btn.primary{
-  border-color: rgba(255,79,216,.35) !important;
-  background: rgba(255,79,216,.12) !important;
+  border-color: rgba(124,255,107,.35) !important;
+  background: rgba(124,255,107,.12) !important;
 
   box-shadow:
-    0 0 0 1px rgba(255,79,216,.12),
-    0 0 28px rgba(255,79,216,.18),
+    0 0 0 1px rgba(124,255,107,.12),
+    0 0 28px rgba(124,255,107,.18),
     0 0 20px rgba(109,246,255,.08),
     0 10px 24px rgba(0,0,0,.22) !important;
 }
@@ -664,12 +667,12 @@
 /* Hover: más glow + levanta un pelín */
 .btn:hover{
   transform: translateY(-1px);
-  border-color: rgba(255,79,216,.45) !important;
-  background: rgba(255,79,216,.14) !important;
+  border-color: rgba(124,255,107,.45) !important;
+  background: rgba(124,255,107,.14) !important;
 
   box-shadow:
-    0 0 0 1px rgba(255,79,216,.16),
-    0 0 34px rgba(255,79,216,.22),
+    0 0 0 1px rgba(124,255,107,.16),
+    0 0 34px rgba(124,255,107,.22),
     0 0 26px rgba(109,246,255,.12),
     0 16px 28px rgba(0,0,0,.26) !important;
 
@@ -687,7 +690,7 @@
   outline: none;
   box-shadow:
     0 0 0 3px rgba(109,246,255,.18),
-    0 0 0 1px rgba(255,79,216,.16),
+    0 0 0 1px rgba(124,255,107,.16),
     0 0 30px rgba(109,246,255,.12) !important;
 }
 /* =========================
@@ -792,12 +795,12 @@
 .btn.primary:hover{
   transform: translateY(-1px);
 
-  border-color: rgba(255,79,216,.60) !important;
-  background: rgba(255,79,216,.10) !important;
+  border-color: rgba(124,255,107,.60) !important;
+  background: rgba(124,255,107,.10) !important;
 
   box-shadow:
-    0 0 0 1px rgba(255,79,216,.18),
-    0 0 44px rgba(255,79,216,.24),
+    0 0 0 1px rgba(124,255,107,.18),
+    0 0 44px rgba(124,255,107,.24),
     0 0 22px rgba(109,246,255,.10),
     0 16px 28px rgba(0,0,0,.26) !important;
 
@@ -817,4 +820,22 @@
   box-shadow:
     0 0 0 3px rgba(109,246,255,.18),
     0 0 36px rgba(109,246,255,.18) !important;
+}
+.heroWarning{
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  border-radius: 14px;
+  color: rgba(255,255,255,.88);
+  max-width: 760px;
+}
+.heroWarning strong{
+  color: rgba(255,255,255,.95);
+}
+.communityHint{
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 18px;
+  line-height: 1.4;
 }

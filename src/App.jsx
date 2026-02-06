@@ -2,9 +2,14 @@
 import "./App.css";
 import { STRINGS } from "./i18n";
 
-const X_PROFILE_URL = "https://x.com/Patchbuu";
-// ✅ Pegá tu link real acá (grupo o canal). Si lo dejás vacío, se ocultan los botones TG.
+/**
+ * ✅ VERCEL = HUB OFICIAL
+ * Dejá OFFICIAL_HUB_URL vacío para que este sitio sea el hub (recomendado).
+ */
+const PROJECT_NAME = "$PINGY";
+const X_PROFILE_URL = "https://x.com/PINGY";
 const TELEGRAM_URL = "https://t.me/+d4wZY1wKinM5NmRh";
+const OFFICIAL_HUB_URL = ""; // <- vacío = este sitio es el Hub
 
 function Section({ id, title, subtitle, children }) {
   return (
@@ -31,16 +36,21 @@ function LinkCard({ title, desc, href, cta }) {
 }
 
 export default function App() {
-  const [lang, setLang] = useState(() => localStorage.getItem("patchbuu_lang") || "en");
+  const [lang, setLang] = useState(() => localStorage.getItem("pingy_lang") || "es");
   const t = useMemo(() => STRINGS[lang], [lang]);
 
   const hasTelegram = Boolean(TELEGRAM_URL && TELEGRAM_URL.startsWith("http"));
+
+  const origin = typeof window !== "undefined" ? window.location.origin : "/";
+  const isSiteHub = !(OFFICIAL_HUB_URL && OFFICIAL_HUB_URL.startsWith("http"));
+  const hubUrl = isSiteHub ? origin : OFFICIAL_HUB_URL;
+  const hubCardUrl = isSiteHub ? `${origin}#top` : hubUrl;
 
   useEffect(() => {
     document.title = t.metaTitle;
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", t.metaDesc);
-    localStorage.setItem("patchbuu_lang", lang);
+    localStorage.setItem("pingy_lang", lang);
   }, [lang, t]);
 
   const toggleLang = () => setLang((p) => (p === "en" ? "es" : "en"));
@@ -50,7 +60,7 @@ export default function App() {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // Puzzle “rain” decorativo
+  // “patch rain” decorativo
   const pieces = useMemo(() => {
     const count = 16;
     const types = ["p1", "p2", "p3"];
@@ -102,22 +112,34 @@ export default function App() {
           aria-label="Go to top"
         >
           <span className="dot" />
-          <span className="brandName">PatchBuu</span>
-          <span className="brandTag">🍬🩹</span>
+          <span className="brandName">{PROJECT_NAME}</span>
+          <span className="brandTag">📡🧲</span>
         </div>
 
         <nav className="navLinks" aria-label="Site navigation">
           <button onClick={() => scrollTo("proof")}>{t.nav.proof}</button>
           <button onClick={() => scrollTo("lore")}>{t.nav.lore}</button>
-          <button onClick={() => scrollTo("token")}>{t.nav.token}</button>
-          <button onClick={() => scrollTo("links")}>{t.nav.links}</button>
+          <button onClick={() => scrollTo("status")}>{t.nav.status}</button>
+          <button onClick={() => scrollTo("official")}>{t.nav.official}</button>
           <button onClick={() => scrollTo("community")}>{t.nav.community}</button>
         </nav>
 
         <div className="navActions">
+          {/* ✅ Botón idioma */}
           <button className="pill neon" onClick={toggleLang} title="Toggle language">
             {t.toggle}
           </button>
+
+          {/* ✅ HUB (uno solo) */}
+          {isSiteHub ? (
+            <button className="pill" onClick={() => scrollTo("official")} title="Hub oficial">
+              HUB
+            </button>
+          ) : (
+            <a className="pill" href={hubUrl} target="_blank" rel="noreferrer" title="Official Hub">
+              HUB
+            </a>
+          )}
 
           {hasTelegram ? (
             <a className="pill" href={TELEGRAM_URL} target="_blank" rel="noreferrer" title="Telegram">
@@ -142,24 +164,30 @@ export default function App() {
 
             <p className="lead">{t.hero.subtitle}</p>
 
+            <div className="heroWarning">
+              <strong>{t.hero.caWarningStrong}</strong> {t.hero.caWarning}
+            </div>
+
             <div className="ctaRow">
-              <button className="btn primary" onClick={() => scrollTo("proof")}>
-                {t.hero.ctaPrimary}
-              </button>
-              <button className="btn" onClick={() => scrollTo("lore")}>
-                {t.hero.ctaSecondary}
-              </button>
               {hasTelegram ? (
-                <a className="btn" href={TELEGRAM_URL} target="_blank" rel="noreferrer">
+                <a className="btn primary" href={TELEGRAM_URL} target="_blank" rel="noreferrer">
                   {t.hero.ctaTelegram}
                 </a>
               ) : null}
+
+              <button className="btn" onClick={() => scrollTo("proof")}>
+                {t.hero.ctaPrimary}
+              </button>
+
+              <button className="btn" onClick={() => scrollTo("lore")}>
+                {t.hero.ctaSecondary}
+              </button>
             </div>
 
             <div className="marquee" aria-hidden="true">
               <div className="marqueeInner">
-                <span>PatchBuu • Born in 3D • Made of patches • Cute chaos • EN/ES • </span>
-                <span>PatchBuu • Born in 3D • Made of patches • Cute chaos • EN/ES • </span>
+                <span>{t.hero.marquee} </span>
+                <span>{t.hero.marquee} </span>
               </div>
             </div>
           </div>
@@ -206,41 +234,44 @@ export default function App() {
           </div>
         </Section>
 
-        <Section id="token" title={t.token.title} subtitle={t.token.subtitle}>
-          <div className="table">
-            {t.token.rows.map((r) => (
-              <div className="tr" key={r.k}>
-                <div className="tdk">{r.k}</div>
-                <div className="tdv">{r.v}</div>
-              </div>
-            ))}
+        <Section id="status" title={t.status.title} subtitle={t.status.subtitle}>
+          <div className="callout">
+            <ul>
+              {t.status.bullets.map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
+            </ul>
           </div>
 
           <div className="container">
-  <p className="muted small tokenNote">{t.token.note}</p>
-</div>
-
+            <p className="muted small tokenNote">{t.status.note}</p>
+          </div>
         </Section>
 
-        <Section id="links" title={t.links.title} subtitle={t.links.subtitle}>
+        <Section id="official" title={t.official.title} subtitle={t.official.subtitle}>
           <div className="linkGrid">
-            <LinkCard title="X" desc={t.links.xDesc} href={X_PROFILE_URL} cta={t.links.open} />
+            <LinkCard
+              title={t.official.hubTitle}
+              desc={t.official.hubDesc}
+              href={hubCardUrl}
+              cta={t.official.open}
+            />
+
+            <LinkCard title="X" desc={t.official.xDesc} href={X_PROFILE_URL} cta={t.official.open} />
 
             {hasTelegram ? (
-              <LinkCard title="Telegram" desc={t.links.tgDesc} href={TELEGRAM_URL} cta={t.links.join} />
+              <LinkCard
+                title="Telegram"
+                desc={t.official.tgDesc}
+                href={TELEGRAM_URL}
+                cta={t.official.join}
+              />
             ) : null}
-
-            <LinkCard
-              title="Website"
-              desc={t.links.siteDesc}
-              href={typeof window !== "undefined" ? window.location.origin : "/"}
-              cta={t.links.view}
-            />
           </div>
 
           <div className="callout">
             <ul>
-              {t.links.bullets.map((b, i) => (
+              {t.official.bullets.map((b, i) => (
                 <li key={i}>{b}</li>
               ))}
             </ul>
@@ -248,6 +279,8 @@ export default function App() {
         </Section>
 
         <Section id="community" title={t.community.title} subtitle={t.community.subtitle}>
+          <p className="muted communityHint">{t.community.howToStart}</p>
+
           <div className="ctaRow">
             <a className="btn primary" href={X_PROFILE_URL} target="_blank" rel="noreferrer">
               {t.community.buttons.x}
@@ -259,8 +292,8 @@ export default function App() {
               </a>
             ) : null}
 
-            <button className="btn" onClick={() => scrollTo("links")}>
-              {t.community.buttons.links}
+            <button className="btn" onClick={() => scrollTo("official")}>
+              {t.community.buttons.hub}
             </button>
           </div>
 

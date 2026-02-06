@@ -1,210 +1,215 @@
 ﻿export const STRINGS = {
   en: {
-  metaTitle: "PatchBuu — Born in 3D. Made of patches. Cute chaos.",
-  metaDesc:
-    "PatchBuu is a real 3D-built character and community. Official links, lore, and safety. EN/ES.",
-
-  toggle: "EN/ES",
-
-  nav: {
-    proof: "Proof",
-    lore: "Lore",
-    token: "Token",
-    links: "Links",
-    community: "Community",
-  },
-
-  hero: {
-    badge: "Born in 3D • Made of patches • Cute chaos",
-    title: "PatchBuu is",
-    titleAccent: "real.",
-    subtitle:
-      "A physical 3D-built character turned into a community world. No fake promises — just proof, lore, and vibes. We use “AI” only as a creative tool to animate the story, not to pretend it’s something it isn’t.",
-    ctaPrimary: "See proof",
-    ctaSecondary: "Read lore",
-    ctaTelegram: "Join Telegram",
-  },
-
-  proof: {
-    title: "Proof",
-    subtitle: "What makes PatchBuu different",
-    cards: [
-      { k: "Real", v: "Physical 3D printed object." },
-      { k: "Transparent", v: "Official links + safety rules." },
-      { k: "Community", v: "Raids, memes and coordination together." },
-    ],
-    bullets: [
-      "PatchBuu is a real, tangible character.",
-      "We can “animate” it in content as a narrative device.",
-      "Only trust official links published on this website.",
-    ],
-  },
-
-  lore: {
-    title: "Lore",
-    subtitle: "Born in 3D. Made of patches. Cute chaos.",
-    items: [
-      {
-        title: "The Patch Core",
-        text: "PatchBuu is stitched from colorful pieces — each patch is a meme, a memory, or a moment from the community.",
-      },
-      {
-        title: "Candyverse breach",
-        text: "A sweet dimension where cute chaos spreads fast. PatchBuu doesn’t talk — it reacts, appears, and causes mischief.",
-      },
-      {
-        title: "How “AI” fits",
-        text: "We don’t claim PatchBuu is AI. We use AI as a creative tool to animate scenes, moods and mini-stories.",
-      },
-    ],
-    cta: "Follow on X",
-    ctaTelegram: "Join Telegram",
-  },
-
-  token: {
-    title: "Token",
-    subtitle: "Status and transparency",
-    rows: [
-      { k: "Status", v: "Coming soon" },
-      { k: "Chain", v: "Solana (planned)" },
-      { k: "CA", v: "TBA (posted here + on official X)" },
-      { k: "Supply", v: "1,000,000,000" },
-      { k: "Taxes", v: "0/0 (planned)" },
-    ],
-    note:
-      "Anti-scam: PatchBuu will never DM you first. Always verify links and the CA only on this website, on the official Telegram, and on the official X.",
-  },
-
-  links: {
-    title: "Official Links",
-    subtitle: "Only trust links posted here and on the official X profile.",
-    open: "Open",
-    join: "Join",
-    view: "View",
-    xDesc: "Main updates, proof posts, lore drops and announcements.",
-    tgDesc: "Community chat, raids, coordination and meme missions.",
-    siteDesc: "This site is the source of truth for official links and CA (when live).",
-    bullets: [
-      "The team never DMs first.",
-      "Never share your seed. Don’t connect your wallet from random links.",
-      "If someone asks for money / “verification” / “support”, it’s a scam.",
-    ],
-  },
-
-  community: {
-    title: "Community",
-    subtitle: "Cute chaos is better together.",
-    buttons: {
-      x: "Open X profile",
-      telegram: "Join Telegram",
-      links: "Official links",
-    },
-    footer: "© PatchBuu — Keep it cute. Keep it safe.",
-  },
-},
-
-
-  es: {
-    metaTitle: "PatchBuu — Nació en 3D. Hecho de parches. Caos cute.",
+    metaTitle: "$PINGY — Born in 3D. Magnetic patches. Safe by design.",
     metaDesc:
-      "PatchBuu es un personaje real impreso en 3D + comunidad. Links oficiales, lore y seguridad. EN/ES.",
+      "$PINGY is a community-built meme with a 3D collectible base + magnetic patch drops. Official rules, anti-scam, and official links. EN/ES.",
 
     toggle: "EN/ES",
 
     nav: {
-      proof: "Pruebas",
-      lore: "Lore",
-      token: "Token",
-      links: "Links",
-      community: "Comunidad",
+      proof: "Rules",
+      lore: "3D",
+      status: "Status",
+      official: "Official",
+      community: "Join",
     },
 
     hero: {
-      badge: "Nació en 3D • Hecho de parches • Caos cute",
-      title: "PatchBuu es",
-      titleAccent: "real.",
+      badge: "Born in 3D • Magnetic patches • Cute chaos • Safety first",
+      title: "$PINGY is",
+      titleAccent: "a ping.",
       subtitle:
-        "Un personaje físico impreso en 3D convertido en un mundo de comunidad. Sin humo — solo pruebas, lore y vibra. Usamos “IA” solo como herramienta creativa para animar la historia, no para fingir algo que no es.",
-      ctaPrimary: "Ver pruebas",
-      ctaSecondary: "Leer lore",
-      ctaTelegram: "Unirme a Telegram",
+        "A meme mascot you can actually hold: one 3D base + patch drops voted by the community. Not trading signals. No promises. Just rituals, builds, and one clean official hub.",
+      caWarningStrong: "Important:",
+      caWarning: "There is NO token and NO official contract address (CA) today. If you see one, it’s fake.",
+      ctaPrimary: "Read the rules",
+      ctaSecondary: "See the 3D system",
+      ctaTelegram: "Join Telegram",
+      marquee: "$PINGY • Born in 3D • Magnetic patches • Safety first • EN/ES •",
     },
 
     proof: {
-      title: "Pruebas",
-      subtitle: "Qué hace diferente a PatchBuu",
+      title: "Base & Rules",
+      subtitle: "Start clean — structure + anti-scam from day 1.",
       cards: [
-        { k: "Real", v: "Objeto físico impreso en 3D." },
-        { k: "Transparente", v: "Links oficiales + reglas de seguridad." },
-        { k: "Comunidad", v: "Raids, memes y coordinación juntos." },
+        { k: "Anti-Scam", v: "No DMs first. No seed phrase. Links only Hub/pinned." },
+        { k: "No Signals", v: "No financial advice. No promises. No performance talk." },
+        { k: "One Hub", v: "One source of truth for everything official." },
       ],
       bullets: [
-        "PatchBuu es un personaje real, tangible.",
-        "Podemos “animarlo” en contenido como recurso narrativo.",
-        "Confiá solo en los links oficiales publicados en esta web.",
+        "Team never DMs you first — ever.",
+        "Seed phrase / private key: never share it. Nobody needs it.",
+        "If it's not in the Official Hub, it's not official.",
+        "Report scams: screenshot + @user + message link to mods.",
       ],
     },
 
     lore: {
-      title: "Lore",
-      subtitle: "Nació en 3D. Hecho de parches. Caos cute.",
+      title: "3D Collectible System",
+      subtitle: "Base + Patches (magnetic) — the heart of $PINGY.",
       items: [
         {
-          title: "El Patch Core",
-          text: "PatchBuu está armado con piezas de colores — cada parche es un meme, un recuerdo o un momento de la comunidad.",
+          title: "PINGY Base (always the same)",
+          text: "One main figure that stays identical. It’s the anchor for the whole collection — every drop fits the same base.",
         },
         {
-          title: "Brecha al Candyverse",
-          text: "Una dimensión dulce donde el caos cute se contagia rápido. PatchBuu no habla — reacciona, aparece y hace travesuras.",
+          title: "Magnetic Patches (drops)",
+          text: "Small add-ons/skins that attach with magnets. The community votes A/B/C and the winner becomes the next physical patch.",
         },
         {
-          title: "Cómo entra la “IA”",
-          text: "No decimos que PatchBuu sea IA. Usamos IA como herramienta creativa para animar escenas, moods y mini-historias.",
+          title: "Print-friendly standard",
+          text: "Designed for home FDM: 6–10 cm, no supports when possible, 0.2–0.3 mm tolerances, 5×2 or 6×2 mm magnets.",
+        },
+      ],
+      cta: "Follow on X",
+      ctaTelegram: "Join Telegram",
+    },
+
+    status: {
+      title: "Status (Read first)",
+      subtitle: "Phase 0 — structure, safety, and community rituals.",
+      bullets: [
+        "Token status: NOT live. There is no official CA today.",
+        "If you see a CA in DMs or random posts — it’s a scam.",
+        "When anything becomes official, it will be posted ONLY here + pinned posts.",
+      ],
+      note:
+        "Safety reminder: never trust DMs, never share seed/private key, and verify every official link only via this Hub.",
+    },
+
+    official: {
+      title: "Official Links",
+      subtitle: "One place. Zero confusion. Zero fake links.",
+      open: "Open",
+      join: "Join",
+      hubTitle: "Official Hub",
+      hubDesc: "Single source of truth: rules, official links, and project status.",
+      xDesc: "Updates, builds, teasers, and public progress.",
+      tgDesc: "Community HQ: votes, rituals, builders, and drop decisions.",
+      bullets: [
+        "No official link will ever be sent by DM.",
+        "Only trust links in the Hub / pinned messages.",
+        "If someone asks for money or 'verification' — it’s a scam.",
+      ],
+    },
+
+    community: {
+      title: "Join the Community",
+      subtitle: "Vote → Drop → Collect → Repeat.",
+      howToStart: "Start now: join Telegram and introduce yourself with your mood (😭 😐 😈 🤑).",
+      buttons: {
+        x: "Open X profile",
+        telegram: "Join Telegram",
+        hub: "Official hub",
+      },
+      footer: "© $PINGY — Cute chaos, built safely.",
+    },
+  },
+
+  es: {
+    metaTitle: "$PINGY — Nació en 3D. Parches magnéticos. Seguro desde el día 1.",
+    metaDesc:
+      "$PINGY es un meme construido por la comunidad con un coleccionable 3D (base + parches magnéticos). Reglas oficiales, anti-scam y links. EN/ES.",
+
+    toggle: "EN/ES",
+
+    nav: {
+      proof: "Base",
+      lore: "3D",
+      status: "Estado",
+      official: "Oficial",
+      community: "Unirse",
+    },
+
+    hero: {
+      badge: "Nació en 3D • Parches magnéticos • Caos cute • Seguridad primero",
+      title: "$PINGY es",
+      titleAccent: "un ping.",
+      subtitle:
+        "Una mascota meme que podés tener física: una base 3D + drops de parches votados por la comunidad. No es señal financiera. No hay promesas. Solo rituales, builds y un hub oficial limpio.",
+      caWarningStrong: "Importante:",
+      caWarning: "NO existe token y NO hay dirección de contrato (CA) oficial hoy. Si ves uno, es fake.",
+      ctaPrimary: "Leer reglas",
+      ctaSecondary: "Ver sistema 3D",
+      ctaTelegram: "Unirme a Telegram",
+      marquee: "$PINGY • Nació en 3D • Parches magnéticos • Seguridad primero • EN/ES •",
+    },
+
+    proof: {
+      title: "Base y Reglas",
+      subtitle: "El proyecto nace limpio — estructura + anti-scam desde el día 1.",
+      cards: [
+        { k: "Anti-Scam", v: "DM primero = nunca. Frase semilla (seed) = nunca. Links solo Hub/fijados." },
+        { k: "Sin Señales", v: "Nada de consejos financieros. Nada de promesas. Nada de rendimientos." },
+        { k: "Un Hub", v: "Un único lugar oficial para todo." },
+      ],
+      bullets: [
+        "El team nunca te escribe primero por DM — nunca.",
+        "Frase semilla (seed) / private key: jamás la compartas. Nadie la necesita.",
+        "Si no está en el Hub Oficial, no es oficial.",
+        "Reportar estafas: screenshot + @usuario + link del mensaje a mods.",
+      ],
+    },
+
+    lore: {
+      title: "Sistema Coleccionable 3D",
+      subtitle: "Base + Parches (magnéticos) — el corazón de $PINGY.",
+      items: [
+        {
+          title: "PINGY Base (siempre igual)",
+          text: "Una figura principal que no cambia. Es el ancla del coleccionable: todos los drops encajan en la misma base.",
+        },
+        {
+          title: "Parches magnéticos (drops)",
+          text: "Skins/accesorios que se adhieren con imanes. La comunidad vota A/B/C y el ganador se imprime como próximo patch físico.",
+        },
+        {
+          title: "Estándar print-friendly",
+          text: "Pensado para FDM en casa: 6–10 cm, sin soportes si se puede, tolerancias 0.2–0.3 mm, imanes 5×2 o 6×2 mm.",
         },
       ],
       cta: "Seguir en X",
       ctaTelegram: "Unirme a Telegram",
     },
 
-    token: {
-      title: "Token",
-      subtitle: "Estado y transparencia",
-      rows: [
-        { k: "Estado", v: "Próximamente" },
-        { k: "Red", v: "Solana (plan)" },
-        { k: "CA", v: "TBA (se publica acá + en X oficial)" },
-        { k: "Supply", v: "1.000.000.000" },
-        { k: "Impuestos", v: "0/0 (plan)" },
+    status: {
+      title: "Estado (Leer primero)",
+      subtitle: "Fase 0 — estructura, seguridad y rituales de comunidad.",
+      bullets: [
+        "Estado del token: NO existe. Hoy no hay CA oficial.",
+        "Si ves un CA por DM o posts random — es estafa.",
+        "Cuando algo sea oficial, se publica SOLO acá + mensajes fijados.",
       ],
       note:
-        "Anti-scam: PatchBuu nunca te va a escribir primero por DM. Verificá siempre los links y el CA solo en esta web, en telegram y en el X oficial.",
+        "Recordatorio: nunca confíes en DMs, nunca compartas seed/private key, y verificá todo únicamente desde este Hub.",
     },
 
-    links: {
-      title: "Links oficiales",
-      subtitle: "Confiá solo en los links publicados acá y en el X oficial.",
+    official: {
+      title: "Oficial",
+      subtitle: "Un solo lugar. Cero confusión. Cero links truchos.",
       open: "Abrir",
       join: "Unirme",
-      view: "Ver",
-      xDesc: "Updates principales, pruebas, lore drops y anuncios.",
-      tgDesc: "Chat de comunidad, raids, coordinación y misiones de memes.",
-      siteDesc: "Esta web es la fuente de verdad para links oficiales y el CA (cuando esté live).",
+      hubTitle: "Hub oficial",
+      hubDesc: "Unica fuente, links oficiales y estado del proyecto.",
+      xDesc: "Updates, builds, teasers y progreso público.",
+      tgDesc: "HQ de la comunidad: votos, rituales, builders y decisiones de drops.",
       bullets: [
-        "El equipo nunca escribe primero por DM.",
-        "Nunca compartas tu seed. No conectes tu wallet desde links random.",
-        "Si alguien pide dinero / “verificación” / “soporte”, es estafa.",
+        "Ningún link oficial se manda por DM.",
+        "Confiá solo en links del Hub / mensajes fijados.",
+        "Si alguien pide dinero o “verificación” — es estafa.",
       ],
     },
 
     community: {
-      title: "Comunidad",
-      subtitle: "El caos cute se disfruta en grupo.",
+      title: "Sumate a la Comunidad",
+      subtitle: "Voto → Drop → Colección → Repetir.",
+      howToStart: "Arrancá ahora: entrá a Telegram y presentate con tu mood (😭 😐 😈 🤑).",
       buttons: {
         x: "Abrir perfil de X",
         telegram: "Unirme a Telegram",
-        links: "Links oficiales",
+        hub: "Hub oficial",
       },
-      footer: "© PatchBuu — Cute, pero seguro.",
+      footer: "© $PINGY — Caos cute, pero seguro.",
     },
   },
 };
